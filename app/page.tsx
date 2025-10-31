@@ -25,7 +25,7 @@ export default function Home() {
             tab.
           </p>
           <div className="ctaRow">
-            <a className="btn primary" href="#download">
+            <a className="btn primary" href="/download">
               Download
             </a>
             <a className="btn ghost" href="#learn">
