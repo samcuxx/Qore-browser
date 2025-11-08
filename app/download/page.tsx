@@ -30,7 +30,7 @@ function formatBytes(bytes: number): string {
 async function getLatestRelease(): Promise<GitHubRelease | null> {
   try {
     const res = await fetch(
-      "https://api.github.com/repos/samcuxx/Qore-browser/releases/latest",
+      "https://api.github.com/repos/samcuxx/my-browser/releases/latest",
       {
         next: { revalidate: 3600 },
         headers: { Accept: "application/vnd.github+json" },
@@ -47,7 +47,9 @@ async function getLatestRelease(): Promise<GitHubRelease | null> {
 export default async function DownloadPage() {
   const release = await getLatestRelease();
 
-  const windowsAsset = release?.assets?.find((a) => /\.(exe|msi)$/i.test(a.name));
+  const windowsAsset = release?.assets?.find((a) =>
+    /\.(exe|msi)$/i.test(a.name)
+  );
 
   const version = release?.tag_name ?? "v0.0.0";
   const published = release?.published_at
@@ -60,7 +62,12 @@ export default async function DownloadPage() {
         <div className="flex flex-col md:flex-row gap-8 items-center md:items-stretch">
           <div className="shrink-0">
             <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6">
-              <Image src="/icon.svg" alt="Qore Browser" width={140} height={140} />
+              <Image
+                src="/icon.svg"
+                alt="Lux Browser"
+                width={140}
+                height={140}
+              />
             </div>
           </div>
 
@@ -68,10 +75,14 @@ export default async function DownloadPage() {
             <div className="rounded-2xl border border-white/10 bg-white/5/50 backdrop-blur p-6 md:p-8">
               <div className="flex items-center gap-2 text-cyan-300">
                 <span className="inline-flex h-2 w-2 rounded-full bg-cyan-400"></span>
-                <span className="text-sm font-medium">Available for Windows</span>
+                <span className="text-sm font-medium">
+                  Available for Windows
+                </span>
               </div>
 
-              <h1 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">Download Qore Browser</h1>
+              <h1 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">
+                Download Lux Browser
+              </h1>
               <p className="mt-2 text-slate-300">
                 Fast, privacy‑first browsing. Clean, modern UI. No compromises.
               </p>
@@ -79,17 +90,37 @@ export default async function DownloadPage() {
               <div className="mt-6 grid grid-cols-1 gap-3 w-full max-w-xl mx-auto">
                 <a
                   className="group relative col-span-1 inline-flex h-14 w-full items-center justify-between rounded-xl px-5 text-base font-medium text-white bg-gradient-to-tr from-cyan-500 to-blue-600 shadow-[0_8px_30px_rgb(0,185,193,0.25)] hover:shadow-[0_8px_40px_rgb(0,185,193,0.35)] transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
-                  href={windowsAsset?.browser_download_url ?? release?.html_url ?? "https://github.com/samcuxx/Qore-browser/releases"}
+                  href={
+                    windowsAsset?.browser_download_url ??
+                    release?.html_url ??
+                    "https://github.com/samcuxx/my-browser/releases"
+                  }
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   <span className="inline-flex items-center gap-3 truncate">
-                    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 opacity-90"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 18h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    <span className="whitespace-nowrap">Download for Windows</span>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="h-5 w-5 opacity-90"
+                    >
+                      <path
+                        d="M12 3v12m0 0 4-4m-4 4-4-4M4 18h16"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span className="whitespace-nowrap">
+                      Download for Windows
+                    </span>
                   </span>
                   <span className="ml-4 text-white/80 text-sm whitespace-nowrap">
                     {version}
-                    {windowsAsset?.size ? ` • ${formatBytes(windowsAsset.size)}` : ""}
+                    {windowsAsset?.size
+                      ? ` • ${formatBytes(windowsAsset.size)}`
+                      : ""}
                   </span>
                 </a>
 
@@ -111,10 +142,16 @@ export default async function DownloadPage() {
               </div>
 
               <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-400">
-                <span>Latest: <strong className="text-slate-200 font-medium">{version}</strong>{published ? ` • ${published}` : ""}</span>
+                <span>
+                  Latest:{" "}
+                  <strong className="text-slate-200 font-medium">
+                    {version}
+                  </strong>
+                  {published ? ` • ${published}` : ""}
+                </span>
                 <a
                   className="underline decoration-dotted decoration-slate-500 hover:decoration-slate-300 hover:text-slate-200"
-                  href="https://github.com/samcuxx/Qore-browser/releases"
+                  href="https://github.com/samcuxx/my-browser/releases"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
@@ -128,5 +165,3 @@ export default async function DownloadPage() {
     </main>
   );
 }
-
-

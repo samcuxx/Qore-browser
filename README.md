@@ -1,2 +1,2 @@
-# Qore-browser
+# Lux-browser
 Browser

@@ -9,7 +9,7 @@ export default function Home() {
           <div className="logoWrap">
             <Image
               src="/icon.svg"
-              alt="Qore Browser logo"
+              alt="Lux Browser logo"
               width={420}
               height={420}
               priority
@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <div className="right">
           <span className="eyebrow">Introducing</span>
-          <h1 className="title">Qore Browser</h1>
+          <h1 className="title">Lux Browser</h1>
           <p className="subtitle">
             A faster, privacy‑first browser with a clean, modern interface.
             Browse without compromise—speed, security, and serenity in every
@@ -40,9 +40,7 @@ export default function Home() {
         </div>
       </div>
 
-      <style jsx>{`
-      
-      `}</style>
+      <style jsx>{``}</style>
     </main>
   );
 }
