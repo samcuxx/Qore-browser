@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ThemeToggle } from "../components/ThemeToggle";
 
 type GitHubAsset = {
   name: string;
@@ -71,7 +72,10 @@ export default function DownloadPageClient({
     : undefined;
 
   return (
-    <main className="min-h-dvh bg-[radial-gradient(1200px_600px_at_10%_0%,rgba(0,185,193,0.16),transparent),radial-gradient(1200px_600px_at_90%_20%,rgba(0,113,188,0.16),transparent),linear-gradient(180deg,#0b1020_0%,#0a0d1a_100%)] text-slate-100 flex items-center justify-center p-6">
+    <main className="min-h-dvh bg-gradient-to-br from-slate-50 to-white dark:from-[#0b1020] dark:to-[#0a0d1a] dark:bg-[radial-gradient(1200px_600px_at_10%_0%,rgba(0,185,193,0.16),transparent),radial-gradient(1200px_600px_at_90%_20%,rgba(0,113,188,0.16),transparent),linear-gradient(180deg,#0b1020_0%,#0a0d1a_100%)] text-slate-900 dark:text-slate-100 flex items-center justify-center p-6 transition-colors duration-300">
+      {/* <div className="fixed top-6 right-6 z-50">
+        <ThemeToggle />
+      </div> */}
       <motion.div
         className="w-full max-w-4xl"
         variants={containerVariants}
@@ -81,7 +85,7 @@ export default function DownloadPageClient({
         <motion.div variants={itemVariants}>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-200 transition-colors mb-6 group"
+            className="inline-flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors mb-6 group"
           >
             <svg
               viewBox="0 0 24 24"
@@ -104,7 +108,7 @@ export default function DownloadPageClient({
           <motion.div className="shrink-0" variants={itemVariants}>
             <Link
               href="/"
-              className="block rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:bg-white/10 transition-colors cursor-pointer"
+              className="block rounded-2xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur p-6 hover:bg-white dark:hover:bg-white/10 transition-colors cursor-pointer shadow-lg dark:shadow-none"
             >
               <Image
                 src="/icon.svg"
@@ -116,21 +120,21 @@ export default function DownloadPageClient({
           </motion.div>
 
           <motion.div className="flex-1" variants={itemVariants}>
-            <div className="rounded-2xl border border-white/10 bg-white/5/50 backdrop-blur p-6 md:p-8">
+            <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur p-6 md:p-8 shadow-lg dark:shadow-none">
               <motion.div
-                className="flex items-center gap-2 text-cyan-300"
+                className="flex items-center gap-2 text-cyan-600 dark:text-cyan-300"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.4 }}
               >
-                <span className="inline-flex h-2 w-2 rounded-full bg-cyan-400"></span>
+                <span className="inline-flex h-2 w-2 rounded-full bg-cyan-500 dark:bg-cyan-400"></span>
                 <span className="text-sm font-medium">
                   Available for Windows
                 </span>
               </motion.div>
 
               <motion.h1
-                className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight"
+                className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 dark:text-white"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
@@ -138,7 +142,7 @@ export default function DownloadPageClient({
                 Download Lux Browser
               </motion.h1>
               <motion.p
-                className="mt-2 text-slate-300"
+                className="mt-2 text-slate-600 dark:text-slate-300"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
@@ -192,7 +196,7 @@ export default function DownloadPageClient({
                 </motion.a>
 
                 <motion.button
-                  className="col-span-1 inline-flex h-14 w-full items-center justify-center rounded-xl px-5 text-base font-medium text-slate-300 bg-white/5 border border-white/10 cursor-not-allowed"
+                  className="col-span-1 inline-flex h-14 w-full items-center justify-center rounded-xl px-5 text-base font-medium text-slate-500 dark:text-slate-300 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 cursor-not-allowed"
                   disabled
                   title="Linux builds coming soon"
                   initial={{ opacity: 0.5 }}
@@ -202,7 +206,7 @@ export default function DownloadPageClient({
                 </motion.button>
 
                 <motion.button
-                  className="col-span-1 inline-flex h-14 w-full items-center justify-center rounded-xl px-5 text-base font-medium text-slate-300 bg-white/5 border border-white/10 cursor-not-allowed"
+                  className="col-span-1 inline-flex h-14 w-full items-center justify-center rounded-xl px-5 text-base font-medium text-slate-500 dark:text-slate-300 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 cursor-not-allowed"
                   disabled
                   title="macOS builds coming soon"
                   initial={{ opacity: 0.5 }}
@@ -213,20 +217,20 @@ export default function DownloadPageClient({
               </motion.div>
 
               <motion.div
-                className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-400"
+                className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500 dark:text-slate-400"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9, duration: 0.5 }}
               >
                 <span>
                   Latest:{" "}
-                  <strong className="text-slate-200 font-medium">
+                  <strong className="text-slate-700 dark:text-slate-200 font-medium">
                     {version}
                   </strong>
                   {published ? ` • ${published}` : ""}
                 </span>
                 <a
-                  className="underline decoration-dotted decoration-slate-500 hover:decoration-slate-300 hover:text-slate-200"
+                  className="underline decoration-dotted decoration-slate-400 dark:decoration-slate-500 hover:decoration-slate-600 dark:hover:decoration-slate-300 hover:text-slate-700 dark:hover:text-slate-200"
                   href="https://github.com/samcuxx/my-browser/releases"
                   target="_blank"
                   rel="noreferrer noopener"
