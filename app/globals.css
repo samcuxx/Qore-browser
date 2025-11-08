@@ -54,6 +54,8 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
+  margin: 0 auto;
+  padding: 0;
 }
 .left {
   display: flex;
@@ -170,6 +172,7 @@ body {
   .container {
     grid-template-columns: 1fr;
     gap: 32px;
+    padding: 0 24px;
   }
   .right {
     text-align: center;
