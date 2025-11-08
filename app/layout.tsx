@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import PageTransition from "./components/PageTransition";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,11 +12,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lux-browser.samcux.tech/"),
   title: {
-    default: "Lux Browser - Fast, Privacy-First Web Browser",
+    default: "Lux Browser - Privacy-Focused Browser for Windows",
     template: "%s | Lux Browser",
   },
   description:
-    "Fast, privacy‑first web browser with a clean, modern UI. No compromises, just browsing. Download Lux Browser for Windows - lightning-fast performance, tracker blocking, and private by default.",
+    "Lux Browser: A fast, privacy-focused web browser for Windows. Built with performance and user control in mind. Download free.",
   keywords: [
     "Lux Browser",
     "Windows browser",
@@ -50,9 +51,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://lux-browser.samcux.tech/",
     siteName: "Lux Browser",
-    title: "Lux Browser - Fast, Privacy-First Web Browser",
+    title: "Lux Browser - Fast, Privacy-Focused Browser",
     description:
-      "Fast, privacy‑first web browser with a clean, modern UI. No compromises, just browsing. Download for Windows today.",
+      "Lux Browser: A fast, privacy-focused web browser for Windows. Built with performance and user control in mind.",
     images: [
       {
         url: "/og.png",
@@ -65,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lux Browser - Fast, Privacy-First Web Browser",
+    title: "Lux Browser - Fast, Privacy-Focused Browser",
     description:
-      "Fast, privacy‑first web browser with a clean, modern UI. No compromises, just browsing.",
+      "Lux Browser: A fast, privacy-focused web browser for Windows. Built with performance and user control in mind.",
     images: ["/og.png"],
     creator: "@samcux",
     site: "@samcux",
@@ -107,7 +108,7 @@ export default function RootLayout({
     applicationCategory: "BrowserApplication",
     operatingSystem: "Windows",
     description:
-      "Fast, privacy‑first web browser with a clean, modern UI. No compromises, just browsing.",
+      "Lux Browser: A fast, privacy-focused web browser for Windows. Built with performance and user control in mind.",
     url: "https://lux-browser.samcux.tech/",
     downloadUrl: "https://lux-browser.samcux.tech/download",
     author: {
@@ -126,11 +127,11 @@ export default function RootLayout({
       ratingCount: "1",
     },
     featureList: [
-      "Privacy-first browsing",
-      "Tracker blocking",
-      "Lightning-fast performance",
-      "Clean modern UI",
-      "Private by default",
+      "Automatic tracker blocking",
+      "Minimal resource usage",
+      "Built-in privacy controls",
+      "Clean interface",
+      "Windows optimized",
     ],
   };
 
@@ -142,7 +143,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
