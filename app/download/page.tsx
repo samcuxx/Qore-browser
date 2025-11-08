@@ -1,4 +1,44 @@
 import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Download Lux Browser",
+  description:
+    "Download Lux Browser for Windows - Fast, privacy‑first web browser with tracker blocking and lightning-fast performance. Free download available now.",
+  keywords: [
+    "download Lux Browser",
+    "Lux Browser Windows",
+    "browser download",
+    "privacy browser download",
+    "Windows browser download",
+    "free browser download",
+  ],
+  openGraph: {
+    title: "Download Lux Browser - Fast, Privacy-First Browser",
+    description:
+      "Download Lux Browser for Windows - Fast, privacy‑first web browser with tracker blocking and lightning-fast performance.",
+    url: "https://lux-browser.samcux.tech/download",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Download Lux Browser",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Download Lux Browser - Fast, Privacy-First Browser",
+    description:
+      "Download Lux Browser for Windows - Fast, privacy‑first web browser with tracker blocking and lightning-fast performance.",
+  },
+  alternates: {
+    canonical: "https://lux-browser.samcux.tech/download",
+  },
+};
 
 type GitHubAsset = {
   name: string;
@@ -59,16 +99,39 @@ export default async function DownloadPage() {
   return (
     <main className="min-h-dvh bg-[radial-gradient(1200px_600px_at_10%_0%,rgba(0,185,193,0.16),transparent),radial-gradient(1200px_600px_at_90%_20%,rgba(0,113,188,0.16),transparent),linear-gradient(180deg,#0b1020_0%,#0a0d1a_100%)] text-slate-100 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-200 transition-colors mb-6 group"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform"
+          >
+            <path
+              d="M19 12H5M5 12L12 19M5 12L12 5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span className="text-sm font-medium">Back</span>
+        </Link>
+
         <div className="flex flex-col md:flex-row gap-8 items-center md:items-stretch">
           <div className="shrink-0">
-            <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6">
+            <Link
+              href="/"
+              className="block rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:bg-white/10 transition-colors cursor-pointer"
+            >
               <Image
                 src="/icon.svg"
                 alt="Lux Browser"
                 width={140}
                 height={140}
               />
-            </div>
+            </Link>
           </div>
 
           <div className="flex-1">
